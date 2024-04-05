@@ -2,6 +2,7 @@ package dev.andreasgeorgatos.perworldwarp.commands;
 
 import dev.andreasgeorgatos.perworldwarp.data.WarpData;
 import dev.andreasgeorgatos.perworldwarp.data.WarpDataManager;
+import dev.andreasgeorgatos.perworldwarp.messages.Messenger;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -12,23 +13,25 @@ import org.bukkit.entity.Player;
 public class Warp implements CommandExecutor {
 
     private final WarpDataManager warpManager;
+    private final Messenger messenger;
 
-    public Warp(WarpDataManager wrapManager) {
+    public Warp(WarpDataManager wrapManager, Messenger messenger) {
         this.warpManager = wrapManager;
+        this.messenger = messenger;
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lAlpha&e&lBox&c&l") + ChatColor.translateAlternateColorCodes('&', "&b Only players can run this command."));
+            sender.sendMessage(messenger.getMessage("onlyPlayers"));
             return false;
         }
         if (args.length != 1) {
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lAlpha&e&lBox&c&l") + ChatColor.translateAlternateColorCodes('&', "&b Please only specify the wrap name."));
+            sender.sendMessage(messenger.getMessage("wrongAmountOfArguments"));
             return false;
         }
 
         if (!sender.hasPermission("AlphaBoxWarps.warp.<" + args[0] +">") || !sender.hasPermission("AlphaBoxWarps.warp.*")) {
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lAlpha&e&lBox&c&l") + ChatColor.translateAlternateColorCodes('&', "&b You don't have permission to run this command."));
+            sender.sendMessage(messenger.getMessage("noPermission"));
             return false;
         }
 
@@ -36,7 +39,7 @@ public class Warp implements CommandExecutor {
         Location location = player.getLocation();
 
         if (!warpManager.doesWarpExist(location.getWorld(), args[0])) {
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lAlpha&e&lBox&c&l") + ChatColor.translateAlternateColorCodes('&', "&b The wrap doesn't exist."));
+            sender.sendMessage(messenger.getMessage("warpDoesNotExist"));
             return false;
         }
 
@@ -44,7 +47,7 @@ public class Warp implements CommandExecutor {
 
         player.teleport(warp.getLocation());
 
-        player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lAlpha&e&lBox&c&l") + ChatColor.translateAlternateColorCodes('&', "&b You have been teleported."));
+        sender.sendMessage(messenger.getMessage("warpSucceed"));
 
         return true;
     }

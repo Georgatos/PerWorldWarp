@@ -1,6 +1,7 @@
 package dev.andreasgeorgatos.perworldwarp.commands;
 
 import dev.andreasgeorgatos.perworldwarp.data.WarpDataManager;
+import dev.andreasgeorgatos.perworldwarp.messages.Messenger;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -13,19 +14,21 @@ import java.util.List;
 public class ListWarps implements CommandExecutor {
 
     private final WarpDataManager warpManager;
+    private final Messenger messenger;
 
-    public ListWarps(WarpDataManager warpManager) {
+    public ListWarps(WarpDataManager warpManager, Messenger messenger) {
         this.warpManager = warpManager;
+        this.messenger = messenger;
     }
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lAlpha&e&lBox&c&l") + ChatColor.translateAlternateColorCodes('&', "&b Only players can run this command."));
+            sender.sendMessage(messenger.getMessage("onlyPlayers"));
             return false;
         }
 
         if (!sender.hasPermission("AlphaBoxWarps.listwarps")) {
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lAlpha&e&lBox&c&l") + ChatColor.translateAlternateColorCodes('&', "&b You don't have permission to run this command."));
+            sender.sendMessage(messenger.getMessage("noPermission"));
             return false;
         }
 
@@ -45,9 +48,8 @@ public class ListWarps implements CommandExecutor {
             sb.deleteCharAt(sb.length() - 1);
             sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lAlpha&e&lBox&c&l") + ChatColor.translateAlternateColorCodes('&', "&b The warps are: " + sb));
         } else {
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lAlpha&e&lBox&c&l") + ChatColor.translateAlternateColorCodes('&', "&b There are no warps available for this world."));
+            sender.sendMessage(messenger.getMessage("noWarpsAvailable"));
         }
-
 
         return true;
     }
