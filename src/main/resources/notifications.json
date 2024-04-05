@@ -22,5 +22,8 @@
   },
   "warpHasBeenSet": {
     "text": "The warp has been created successfully."
+  },
+  "listWarps": {
+    "text": "The warps are: "
   }
 }

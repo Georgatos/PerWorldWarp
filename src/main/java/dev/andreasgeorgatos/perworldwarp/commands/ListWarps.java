@@ -46,7 +46,7 @@ public class ListWarps implements CommandExecutor {
 
         if (!sb.isEmpty()) {
             sb.deleteCharAt(sb.length() - 1);
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lAlpha&e&lBox&c&l") + ChatColor.translateAlternateColorCodes('&', "&b The warps are: " + sb));
+            sender.sendMessage(messenger.getMessage("listWarps") + sb);
         } else {
             sender.sendMessage(messenger.getMessage("noWarpsAvailable"));
         }
