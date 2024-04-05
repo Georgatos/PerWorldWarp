@@ -1,0 +1,19 @@
+name: PerWorldWarp
+main: dev.andreasgeorgatos.perworldwarp.PerWorldWarp
+api-version: 1.20
+description: PerWorldWarp is a plugin designed to facilitate per-world warp functionality in Minecraft servers. It allows server administrators to define specific warp points for each world, enabling players to easily navigate between different areas within each world.
+version: 1
+author: georgatos
+commands:
+  warp:
+    usage: </warp> <destination>
+    description: It teleports a player to the said destination if they are in the correct world.
+  setWarp:
+    usage: </setWarp> <name>
+    description: It creates a warp point with the name you gave at the location you are at.
+  deleteWarp:
+    usage: </deleteWarp> <name>
+    description: It deletes a warp with the said name, must be in the world it was created.
+  listWarps:
+    usage: </listWarps>
+    description: It shows all the available warps for the said world you are at.

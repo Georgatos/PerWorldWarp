@@ -1,0 +1,29 @@
+{
+  "warpSucceed": {
+    "text": "You have been successfully warped!"
+  },
+  "onlyPlayers": {
+    "text": "Only players can run this command!"
+  },
+  "noPermission": {
+    "text": "You don't have permission to run this command!"
+  },
+  "warpDoesNotExist": {
+    "text": "The warp doesn't exist!"
+  },
+  "warpDeleted": {
+    "text": "The warp has been deleted!"
+  },
+  "wrongAmountOfArguments":{
+    "text": "Please look at the manual, you provided the wrong amount of arguments!"
+  },
+  "noWarpsAvailable": {
+    "text": "We don't have any available warps for this world."
+  },
+  "warpHasBeenSet": {
+    "text": "The warp has been created successfully."
+  },
+  "listWarps": {
+    "text": "The warps are: "
+  }
+}
