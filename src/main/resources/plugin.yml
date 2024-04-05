@@ -1,7 +1,7 @@
 name: PerWorldWarp
 main: dev.andreasgeorgatos.perworldwarp.PerWorldWarp
 api-version: 1.20
-description: AlphaBoxWarps is a plugin designed to facilitate per-world warp functionality in Minecraft servers. It allows server administrators to define specific warp points for each world, enabling players to easily navigate between different areas within each world.
+description: PerWorldWarp is a plugin designed to facilitate per-world warp functionality in Minecraft servers. It allows server administrators to define specific warp points for each world, enabling players to easily navigate between different areas within each world.
 version: 1
 author: georgatos
 commands:

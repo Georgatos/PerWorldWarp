@@ -27,7 +27,7 @@ public class ListWarps implements CommandExecutor {
             return false;
         }
 
-        if (!sender.hasPermission("AlphaBoxWarps.listwarps")) {
+        if (!sender.hasPermission("PerWorldWarp.listwarps")) {
             sender.sendMessage(messenger.getMessage("noPermission"));
             return false;
         }
@@ -39,7 +39,7 @@ public class ListWarps implements CommandExecutor {
         StringBuilder sb = new StringBuilder();
 
         for (String warp : warps) {
-            if (player.hasPermission("AlphaBoxWarps.warp.<" + warp + ">") || sender.hasPermission("AlphaBoxWarps.warp.*")) {
+            if (player.hasPermission("PerWorldWarp.warp.<" + warp + ">") || sender.hasPermission("PerWorldWarp.warp.*")) {
                 sb.append(warp).append(",");
             }
         }

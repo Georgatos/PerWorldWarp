@@ -31,7 +31,7 @@ public class SetWarp implements CommandExecutor {
             return false;
         }
 
-        if (!sender.hasPermission("AlphaBoxWarps.setwarp")) {
+        if (!sender.hasPermission("PerWorldWarp.setwarp")) {
             sender.sendMessage(messenger.getMessage("noPermission"));
             return false;
         }

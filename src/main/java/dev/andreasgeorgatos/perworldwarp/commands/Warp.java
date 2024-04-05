@@ -30,7 +30,7 @@ public class Warp implements CommandExecutor {
             return false;
         }
 
-        if (!sender.hasPermission("AlphaBoxWarps.warp.<" + args[0] +">") || !sender.hasPermission("AlphaBoxWarps.warp.*")) {
+        if (!sender.hasPermission("PerWorldWarp.warp.<" + args[0] +">") || !sender.hasPermission("PerWorldWarp.warp.*")) {
             sender.sendMessage(messenger.getMessage("noPermission"));
             return false;
         }

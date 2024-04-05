@@ -31,7 +31,7 @@ public class DeleteWarp implements CommandExecutor {
             return false;
         }
 
-        if (!sender.hasPermission("AlphaBoxWarps.deletewarp")) {
+        if (!sender.hasPermission("PerWorldWarp.deletewarp")) {
             sender.sendMessage(messenger.getMessage("noPermission"));
             return false;
         }
